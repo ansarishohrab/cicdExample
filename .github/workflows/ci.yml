@@ -27,10 +27,11 @@ jobs:
       # ----------------------------
       - name: Validate PR Title
         if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          TITLE="${{ github.event.pull_request.title }}"
-          echo "PR Title: $TITLE"
-          echo "$TITLE" | grep -E "^(feat|fix|chore|docs|refactor|test): .+" || exit 1
+          echo "PR Title: $PR_TITLE"
+          echo "$PR_TITLE" | grep -E "^(feat|fix|chore|docs|refactor|test): .+" || exit 1
 
       # ----------------------------
       # RUN TESTS
