@@ -35,8 +35,13 @@ jobs:
       # ----------------------------
       # RUN TESTS
       # ----------------------------
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
       - name: Run Unit Tests
-        run: npm run test -- --watch=false --code-coverage
+        run: |
+          export CHROME_BIN=$(which google-chrome)
+          npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless --no-progress
 
       # ----------------------------
       # SONAR SCAN
