@@ -52,7 +52,15 @@ jobs:
 
       - name: License Header Check
         run: |
-          ! grep -L "Copyright 2026" $(find src -name "*.ts")
+          MISSING=$(grep -L "Copyright 2026" $(find src -name "*.ts") || true)
+
+          if [ -n "$MISSING" ]; then
+            echo "Files missing required header:"
+            echo "$MISSING"
+            exit 1
+          fi
+
+          echo "All files contain required header."
 
 
   # 3️⃣ TEST + SONAR JOB
