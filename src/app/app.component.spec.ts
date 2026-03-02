@@ -1,3 +1,6 @@
+/*
+ * Copyright 2026 Shohrab Ansari
+ */
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 

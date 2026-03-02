@@ -1,3 +1,6 @@
+/*
+ * Copyright 2026 Shohrab Ansari
+ */
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
