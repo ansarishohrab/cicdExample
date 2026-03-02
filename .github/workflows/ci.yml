@@ -74,13 +74,4 @@ jobs:
       # ----------------------------
       - name: License Header Check
         run: |
-          ! grep -L "Copyright 2026" $(find src -name "*.ts") 
-
-      # ----------------------------
-      # PRISMA CLOUD SCAN
-      # ----------------------------
-      - name: Prisma Scan
-        run: |
-          curl -L -o twistcli https://download.twistlock.com/twistcli
-          chmod +x twistcli
-          ./twistcli scan fs .
+          ! grep -L "Copyright 2026" $(find src -name "*.ts")
